@@ -1,0 +1,280 @@
+<style>
+    :root {
+  --color-white: #f3f3f3;
+  --color-darkblue: #1b1b32;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #37af65;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-white);
+  margin: 0;
+}
+
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(https://c4.wallpaperflare.com/wallpaper/353/770/515/tv-series-peaky-blinders-cillian-murphy-oldtimer-wallpaper-preview.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+  
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  border: none;
+}
+
+.contain {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+@media (min-width: 576px) {
+  .contain {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .contain {
+    max-width: 720px;
+  }
+}
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+#description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.main-content {
+  background: var(--color-darkblue-alpha);
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 0 auto;
+  margin-bottom: 30px;
+    border-radius: 5px;
+    z-index: 2;
+    position: relative;
+      box-shadow: 0px -1px 10px 5px rgb(3, 0, 172);
+      
+}
+
+
+/* form */
+
+form {
+  background: var(--color-darkblue-alpha);
+  padding: 2.5rem 0.625rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
+
+.form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+</style>
+<div class="Contain">
+    <header class="header">
+        <h1 id="title" class="text-center">
+            Sugerir uma Série
+        </h1>
+        <p id="description" class="description-center">
+            Agradecemos desde já pela sua sugestão!
+        </p>
+        <p id="description" class="description-center">
+            (Campos com asterisco (*) não são obrigatórios)
+        </p>
+    </header>
+    <main class="main-content">
+    <form id="survey-form" action="insereSugestoes.php" method="post" enctype="multipart/form-data">
+     <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
+     <div class="form-group">
+         <label id="name-label" for="nome">Nome da Série</label>
+         <input type="text" name="nome" id="name" class="form-control" placeholder="Nome" required>
+     </div>
+     <div class="form-group">
+        <label id="name-label" for="apl">Tem algum outro nome pelo qual é conhecido?*</label>
+        <span class="clue">(se deixado vazio será considerado como não tendo apelido)</span>
+        <input type="text" name="apl" id="name" class="form-control" placeholder="Apelido">
+    </div>  
+     <div class="form-group">
+        <label id="imagem-label" for="imagem">Imagem</label>
+        <input type="file" name="imagem" id="img" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label id="number-label" for="ano">Ano de Lançamento</label>
+        <input type="number" name="ano" id="number" min="1912" max="2023" class="form-control" placeholder="Ano" required>
+    </div>
+    <div class="form-group">
+        <label id="number-label" for="eps">Episódios</label>
+        <input type="number" name="eps" id="number" min="1" max="2600" class="form-control" placeholder="Eps" required>
+    </div>
+    <div>
+       <p>Gênero da Série?</p> 
+       <select id="dropdown" name="genero" class="form-control" required>
+           <option disabled selected value>Selecione</option>
+           <option value="acao">Ação</option>
+           <option value="aventura">Aventura</option>
+           <option value="comedia">Comédia</option>
+           <option value="drama">Drama</option>
+           <option value="misterio">Mistério</option>
+           <option value="romance">Romance</option>
+           <option value="ficCien">Ficção Científica</option>
+           <option value="terror">Terror</option>
+       </select>
+    </div><br>
+    <div class="form-group">
+        <p>Status</p>
+        <label>
+            <input name="status" value="completo" type="radio" class="input-radio" checked>
+            Completo
+        </label>
+        <label>
+            <input name="status" value="andamento" type="radio" class="input-radio" checked>
+            Em Andamento
+        </label>
+
+    </div>
+    <div class="form-group">
+        <p>Onde pode ser assistido?</p>
+        <input type="text" name="assistir" id="favourite-anime" class="form-control" placeholder="Link" required>
+
+    </div>
+    <div class="form-group">
+        <p>Digite aqui a descrição da Série</p>
+        <span class="clue">(máximo de 2000 caracteres!)</span>
+        <textarea id="comments" class="input-textarea" name="descricao" placeholder="Descricao..." rows="8" maxlength="2000"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="text" hidden value="serie" name="tipo">
+        <input type="submit" class="submit-button" name="login">
+
+    </div>
+
+    </form>
+    </main>
+</div>

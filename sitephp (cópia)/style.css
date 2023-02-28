@@ -1,0 +1,53 @@
+div.one {
+    background-image: url('back.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 130%;
+    text-align: center;
+    margin-top: 0;
+    border-radius: 10px;
+    height: 400px;
+    
+}
+
+p.one {
+    color: red;
+}
+
+div.two {
+    text-align: left;
+    margin-left: 5px;
+    margin-rigth: auto;
+    margin-top: 5px;
+    margin-bottom: auto;
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    text-justify: inter-word;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+div.three {
+    background: red;
+    text-align: left;
+    margin-right: 20px;
+    margin-left: 25%;
+    width: 25%;
+    height: auto;
+    border-radius: 10px;
+}
+
+img.one {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    height: auto;
+}
+
+
+
